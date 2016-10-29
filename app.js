@@ -5,9 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var app = express();
+
+mongoose.connect('localhost:27017/shopping'); //shopping is database name
 
 app.engine('.hbs', exphbs({defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
